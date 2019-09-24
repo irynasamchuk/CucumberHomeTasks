@@ -3,7 +3,6 @@ package pageObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Browser {
@@ -12,22 +11,22 @@ public class Browser {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            // WebDriverManager.firefoxdriver().setup();
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            //driver = new FirefoxDriver();
             driverWait = new WebDriverWait(driver, 15);
         }
         return driver;
     }
 
     public static void closeDriver() {
-        if(driver !=null)
+        if (driver != null) {
             driver.quit();
+        }
+        driver = null;
     }
 
-    public static WebDriverWait getWait(){
-            driverWait = new WebDriverWait(driver, 50);
+    public static WebDriverWait getWait() {
+        driverWait = new WebDriverWait(driver, 50);
         return driverWait;
     }
 }

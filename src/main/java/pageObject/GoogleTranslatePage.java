@@ -8,16 +8,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GoogleTranslatePage {
-   private By textAreaLocator = By.xpath("//*[@id=\"source\"]");
-   private By resultTranslationLocator = By.xpath("//span[contains(@class,'tlid-translation')]");
-   private By definitionLocator = By.xpath("(//div[@class='gt-def-row'])[2]");
-   private By languagesFromMenuLocator = By.xpath("//div[contains(@class, 'sl-more tlid-open-source-language-list')]");
-   private By languagesToMenuLocator = By.xpath("//div[@class='tl-more tlid-open-target-language-list']");
-   private By searchLanguageFromLocator = By.xpath("//input[@id='sl_list-search-box']");
-   private By searchLanguageToLocator = By.xpath("//input[@id='tl_list-search-box']");
+    private By textAreaLocator = By.xpath("//*[@id=\"source\"]");
+    private By resultTranslationLocator = By.xpath("//span[contains(@class,'tlid-translation')]");
+    private By definitionLocator = By.xpath("(//div[@class='gt-def-row'])[2]");
+    private By languagesFromMenuLocator = By.xpath("//div[contains(@class, 'sl-more tlid-open-source-language-list')]");
+    private By languagesToMenuLocator = By.xpath("//div[@class='tl-more tlid-open-target-language-list']");
+    private By searchLanguageFromLocator = By.xpath("//input[@id='sl_list-search-box']");
+    private By searchLanguageToLocator = By.xpath("//input[@id='tl_list-search-box']");
 
-    WebDriver driver = Browser.getDriver();
     WebDriverWait driverWait = Browser.getWait();
+    WebDriver driver = Browser.getDriver();
 
     public void open() {
         driver.get("https://translate.google.com/?hl=ru");
@@ -48,7 +48,8 @@ public class GoogleTranslatePage {
         return driver.findElement(resultTranslationLocator);
     }
 
-    public WebElement getDefinition(){
+    public WebElement getDefinition() {
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(definitionLocator));
         return driver.findElement(definitionLocator);
     }
 
@@ -75,7 +76,7 @@ public class GoogleTranslatePage {
         return amountOfCharacters;
     }
 
-    public String getWordDefinition(){
+    public String getWordDefinition() {
         String definition = getDefinition().getText();
         return definition;
     }

@@ -1,13 +1,10 @@
 package steps;
 
-import cucumber.api.java.After;
-import cucumber.api.java.AfterStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import pageObject.Browser;
 import pageObject.GoogleTranslatePage;
 
 public class StepsDefinition {
@@ -33,19 +30,13 @@ public class StepsDefinition {
         Assert.assertEquals(expectedTranslation, actualTranslation );
     }
 
-//    @Then("number of characters must be {string}")
-//    public void numberOfCharactersMustBe(int expectedAmountOfCharacters) {
-//        int actualAmountOfCharacters = googleTranslatePage.getNumberOfSymbols();
-//        Assert.assertEquals(expectedAmountOfCharacters, actualAmountOfCharacters);
-//    }
-
     @Then("they should see the definition {string}")
     public void theyShouldSeeTheDefinition(String expectedDefinition) {
         String actualDefinition = googleTranslatePage.getWordDefinition();
         Assert.assertEquals(expectedDefinition, actualDefinition);
     }
 
-    @Then("number of characters must be {string}")
+    @Then("number of characters must be {int}")
     public void numberOfCharactersMustBe(int arg0) {
         int actualAmountOfCharacters = googleTranslatePage.getNumberOfSymbols();
         Assert.assertEquals(arg0, actualAmountOfCharacters);
