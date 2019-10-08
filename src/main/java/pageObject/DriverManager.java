@@ -21,7 +21,7 @@ public class DriverManager {
     public static void closeDriver() {
         if (driver != null) {
             driver.quit();
+            driver = null;
         }
-        driver = null;
     }
 }
