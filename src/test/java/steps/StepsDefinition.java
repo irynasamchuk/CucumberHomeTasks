@@ -25,7 +25,7 @@ public class StepsDefinition {
     }
 
     @Then("they should see the translation {string}")
-    public void theyShouldSeeTheTranslation(String expectedTranslation) {
+    public void userShouldSeeTheTranslation(String expectedTranslation) {
         String actualTranslation = googleTranslatePage.getTranslation();
         Assert.assertEquals(expectedTranslation, actualTranslation );
     }
@@ -37,8 +37,8 @@ public class StepsDefinition {
     }
 
     @Then("number of characters must be {int}")
-    public void numberOfCharactersMustBe(int arg0) {
+    public void numberOfCharactersMustBe(int expectedAmountOfCharacters) {
         int actualAmountOfCharacters = googleTranslatePage.getNumberOfSymbols();
-        Assert.assertEquals(arg0, actualAmountOfCharacters);
+        Assert.assertEquals(expectedAmountOfCharacters, actualAmountOfCharacters);
     }
 }

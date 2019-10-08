@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = "steps",
-        snippets = SnippetType.CAMELCASE
+        snippets = SnippetType.CAMELCASE,
+        plugin = "json:target/cucumber-reports/CucumberTestReport.json"
 )
 public class RunnerTest {
 
