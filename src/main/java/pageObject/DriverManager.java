@@ -12,8 +12,8 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setBinary("C:\\Users\\Iryna_Samchuk\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
+//            ChromeOptions chromeOptions = new ChromeOptions();
+//            chromeOptions.setBinary("C:\\Users\\Iryna_Samchuk\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driverWait = new WebDriverWait(driver, 15);
